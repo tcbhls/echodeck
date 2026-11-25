@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@layer base {
+  /* 默认：温润纸墨极光浅色主题（旗舰级阅读通透感、低疲劳护眼） */
+  :root,
+  [data-theme="light"] {
+    --bg-canvas: #f7f7f9;
+    --bg-surface: #ffffff;
+    --bg-subtle: #eff0f5;
+    --bg-elevated: rgba(255, 255, 255, 0.88);
+    --text-primary: #14161b;
+    --text-secondary: #585f70;
+    --text-muted: #8a91a4;
+    --border-hairline: rgba(15, 23, 42, 0.075);
+    --border-strong: rgba(15, 23, 42, 0.14);
+    --accent: #ea580c;
+    --accent-soft: rgba(234, 88, 12, 0.10);
+    --accent-ring: rgba(234, 88, 12, 0.30);
+    --accent-text: #c2410c;
+    --accent-fg: #ffffff;
+    --card-shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.08), 0 1px 4px -1px rgba(15, 23, 42, 0.04);
+    --dock-shadow: 0 16px 38px -10px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(15, 23, 42, 0.055);
+  }
+
+  /* 夜间：午夜丝绒深色主题（温润暖炭黑 + 琥珀暖金，夜间追剧/复习零刺眼） */
+  [data-theme="dark"] {
+    --bg-canvas: #0b0c10;
+    --bg-surface: #14161d;
+    --bg-subtle: #1c1f29;
+    --bg-elevated: rgba(20, 22, 29, 0.88);
+    --text-primary: #f4f5f8;
+    --text-secondary: #a2a9ba;
+    --text-muted: #6c7488;
+    --border-hairline: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.15);
+    --accent: #f59e0b;
+    --accent-soft: rgba(245, 158, 11, 0.15);
+    --accent-ring: rgba(245, 158, 11, 0.42);
+    --accent-text: #fbbf24;
+    --accent-fg: #14120c;
+    --card-shadow: 0 16px 40px -14px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    --dock-shadow: 0 18px 44px -8px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(255, 255, 255, 0.09);
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior-y: none;
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.22s ease, color 0.22s ease;
+  }
+}
+
+.font-mono-code {
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.surface-card {
+  background-color: var(--bg-surface);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--border-hairline);
+}
+
+.surface-glass {
+  background-color: var(--bg-elevated);
+  backdrop-filter: blur(22px) saturate(165%);
+  -webkit-backdrop-filter: blur(22px) saturate(165%);
+}
+
+.floating-dock {
+  background-color: var(--bg-elevated);
+  backdrop-filter: blur(26px) saturate(185%);
+  -webkit-backdrop-filter: blur(26px) saturate(185%);
+  box-shadow: var(--dock-shadow);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+
+@keyframes shimmerSlide {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-subtle) 25%,
+    var(--border-hairline) 50%,
+    var(--bg-subtle) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSlide 1.4s ease-in-out infinite;
+}
+
+@keyframes wavePulse {
+  0%, 100% {
+    transform: scaleY(0.32);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.wave-bar {
+  animation: wavePulse 0.85s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes tourRing {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.5), 0 0 0 9999px rgba(8, 10, 16, 0.68);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(234, 88, 12, 0.18), 0 0 0 9999px rgba(8, 10, 16, 0.68);
+  }
+}
+
+.tour-spotlight {
+  animation: tourRing 2s ease-in-out infinite;
+}
+
+.safe-top {
+  padding-top: max(0.7rem, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: max(0.7rem, env(safe-area-inset-bottom));
+}

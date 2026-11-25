@@ -1,0 +1,28 @@
+# Python / Node 依赖与构建产物
+backend/.venv/
+backend/**/__pycache__/
+*.pyc
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Capacitor 编译临时产物（保留原生源码与图标，排除由 CI 自动同步的大体积 dist 与 gradle 缓存）
+frontend/android/app/src/main/assets/public/
+frontend/android/app/build/
+frontend/android/.gradle/
+frontend/android/build/
+frontend/android/local.properties
+
+# 运行时个人媒体、切片、数据库与发布包（仅忽略根目录，保留 frontend/src/data）
+/data/
+/bin/
+/release/
+/.secrets/
+*.jks
+*.p12
+*.keystore
+*.db
+*.db-wal
+*.db-shm
+.DS_Store
+Thumbs.db

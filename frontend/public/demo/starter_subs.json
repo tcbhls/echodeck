@@ -1,0 +1,26 @@
+{
+  "duration": 14.4,
+  "subtitles": [
+    {
+      "idx": 0,
+      "start_ms": 0,
+      "end_ms": 4750,
+      "text": "I didn't see that plot twist coming at all, it completely blew my mind.",
+      "translation": "我完全没猜到那个剧情反转，简直太震撼了。"
+    },
+    {
+      "idx": 1,
+      "start_ms": 4750,
+      "end_ms": 9090,
+      "text": "Let's play it by ear this weekend and see what we're in the mood for.",
+      "translation": "这周末咱们看情况安排，到时候看心情决定干嘛。"
+    },
+    {
+      "idx": 2,
+      "start_ms": 9090,
+      "end_ms": 14370,
+      "text": "Honestly, the cinematography and soundtrack in that movie gave me goosebumps.",
+      "translation": "说实话，那部电影的摄影和配乐直接让我起鸡皮疙瘩了。"
+    }
+  ]
+}

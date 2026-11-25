@@ -1,0 +1,18 @@
+{
+  "name": "EchoDeck 回声舱 — 语言精听与记忆工坊",
+  "short_name": "EchoDeck",
+  "description": "融合影听复读、离线AI字幕、一键挖卡、FSRS间隔重复与局域网零流量同步的全能语言学习应用",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F6EE",
+  "theme_color": "#F7F6EE",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
